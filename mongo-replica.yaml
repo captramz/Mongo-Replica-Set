@@ -1,16 +1,16 @@
 version: "3.8"
 
 services:
-  admin:
-    image: alpine:latest
-    stdin_open: true
-    tty: true
-    volumes:
-      - ssl:/ssl
+  # admin:
+  #   image: alpine:latest
+  #   stdin_open: true
+  #   tty: true
+  #   volumes:
+  #     - ssl:/ssl
 
   mongo1:
     image: mongo:5.0.17
-    command: mongod --keyFile --keyFile /ssl/file.key --replSet my-replica-set
+    command: mongod --keyFile /ssl/file.key --replSet my-replica-set
     depends_on:
       - mongo2
       - mongo3
@@ -26,7 +26,7 @@ services:
 
   mongo2:
     image: mongo:5.0.17
-    command: mongod --keyFile --keyFile /ssl/file.key --replSet my-replica-set
+    command: mongod --keyFile /ssl/file.key --replSet my-replica-set
     environment:
       MONGO_INITDB_ROOT_USERNAME: $MONGO_INITDB_ROOT_USERNAME
       MONGO_INITDB_ROOT_PASSWORD: $MONGO_INITDB_ROOT_PASSWORD
@@ -39,7 +39,7 @@ services:
 
   mongo3:
     image: mongo:5.0.17
-    command: mongod --keyFile --keyFile /ssl/file.key --replSet my-replica-set
+    command: mongod --keyFile /ssl/file.key --replSet my-replica-set
     environment:
       MONGO_INITDB_ROOT_USERNAME: $MONGO_INITDB_ROOT_USERNAME
       MONGO_INITDB_ROOT_PASSWORD: $MONGO_INITDB_ROOT_PASSWORD
