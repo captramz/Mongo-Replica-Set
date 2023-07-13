@@ -1,12 +1,12 @@
 version: "3.8"
 
 services:
-  # admin:
-  #   image: alpine:latest
-  #   stdin_open: true
-  #   tty: true
-  #   volumes:
-  #     - ssl:/ssl
+  admin:
+    image: alpine:latest
+    stdin_open: true
+    tty: true
+    volumes:
+      - ssl:/ssl
 
   mongo1:
     image: mongo:5.0.17
